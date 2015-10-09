@@ -1,5 +1,54 @@
 class GameCLI
 
+ attr_accessor :hangman, :word
+
+
+ def call 
+   puts "WELCOME TO HANGMAN"
+
+   #creates game for ONE or TWO players
+   puts "Do you have 1 or 2 players? (1 or 2)"
+   num_players = get_input.to_i
+   num_players == 1 ? one_player : two_player
+end
+
+def get_input
+   gets.chomp.downcase
+end
+
+def one_player
+   phrase = WordGenerator.new.generate
+   @hangman = Hangman.new(phrase)
+end
+
+def two_player
+   puts "Player One, please choose a word or phrase (up to 20 characters):"
+   user_phrase = get_input
+   phrase_check(user_phrase)
+   puts "Thank you.\nPlayer Two, it's your turn to guess!"
+   @hangman = Hangman.new(word) 
+end
+
+def phrase_check(user_phrase)
+	if user_phrase.length > 20 || (/^[a-zA-Z]*$/).match(user_phrase) == nil
+		puts "Please enter a phrase (up to 20 characters) that only contains letters."
+		get_input
+	else
+		phrase = Phrase.new(user_phrase)
+	end
+end
+ 	
+
+
+
+
+
+
+
+
+
+	attr_accessor :phrase
+
 	def call 
 		puts "Welcome to Hangman"
 		puts "This is a two player game."
@@ -16,37 +65,3 @@ class GameCLI
 
 end
 	
-	
-
-	
-# 	def command
-# 		hangman.display.board
-# 		player 2 starts
-
-# 	end
-
-
-
-
-# play flow:
-
-# display blank board
-# loop of this:
-# user guesses
-# check if guess is good or bad (comparing letter against phrase)
-# 	if good replaces letter on board (updating letters left and letters guessed)
-# 	if bad hang the man, reduce the turn (updating letters guessed)
-# display updated board
-# until game over by turns = 0 or phrase guessed
-
-
-# 	line 50 deeper:
-# 	if guess true
-# 		letter check = true (only hangman logic needs to know if true)
-# 		letters left updated
-# 		letters guessed updated
-
-# 		tell display to replace letters in phrase
-
-
-

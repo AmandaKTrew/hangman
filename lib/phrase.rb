@@ -1,5 +1,5 @@
 class Phrase
-	attr_accessor :phrase, :letters_left, :letters_guessed, :letter
+	attr_accessor :phrase, :letters_left, :letters_guessed, :letter, :display, :hangman
 	attr_reader :is_letter_in_phrase, :turn_reduce
 
 	def initialize(phrase)
@@ -7,6 +7,7 @@ class Phrase
 		@letter = letter
 		@letters_left = ("a".."z").to_a
 		@letters_guessed = []
+		@display.phrase_array = phrase.split("")
 	end
 
 	def get_phrase
@@ -24,7 +25,7 @@ class Phrase
 	end
 
 	def prompt_for_letter(letter)
-		if turns > 0
+		if turns < 7
 			puts "Please guess a letter: "
 			self.get_letter
 		else
