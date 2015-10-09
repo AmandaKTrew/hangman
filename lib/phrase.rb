@@ -15,14 +15,14 @@ class Phrase
 	# 	self.phrase_check(phrase_input)
 	# end
 
-	# def phrase_check
-	# 	if user_phrase.length > 20 || (/^[a-zA-Z]*$/).match(phrase_input) == nil
-	# 		puts "Please enter a phrase (up to 20 characters) that only contains letters."
-	# 		self.get_phrase
-	# 	else
-	# 		self.phrase = phrase_input
-	# 	end
-	# end
+	def phrase_check
+		if user_phrase.length > 20 || (/^[a-zA-Z]*$/).match(phrase_input) == nil
+			puts "Please enter a phrase (up to 20 characters) that only contains letters."
+			self.get_phrase
+		else
+			self.phrase = phrase_input
+		end
+	end
 
 	def prompt_for_letter(letter)
 		if turns < 7
