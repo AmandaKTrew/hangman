@@ -7,22 +7,22 @@ class Phrase
 		@letter = letter
 		@letters_left = ("a".."z").to_a
 		@letters_guessed = []
-		@display.phrase_array = phrase.split("")
+		
 	end
 
-	def get_phrase
-		phrase_input = gets.chomp.downcase
-		self.phrase_check(phrase_input)
-	end
+	# def get_phrase
+	# 	phrase_input = gets.chomp.downcase
+	# 	self.phrase_check(phrase_input)
+	# end
 
-	def phrase_check(phrase_input)
-		if phrase_input.length > 20 || (/^[a-zA-Z]*$/).match(phrase_input) == nil
-			puts "Please enter a phrase (up to 20 characters) that only contains letters."
-			self.get_phrase
-		else
-			self.phrase = phrase_input
-		end
-	end
+	# def phrase_check
+	# 	if user_phrase.length > 20 || (/^[a-zA-Z]*$/).match(phrase_input) == nil
+	# 		puts "Please enter a phrase (up to 20 characters) that only contains letters."
+	# 		self.get_phrase
+	# 	else
+	# 		self.phrase = phrase_input
+	# 	end
+	# end
 
 	def prompt_for_letter(letter)
 		if turns < 7
@@ -44,8 +44,7 @@ class Phrase
 			self.get_letter
 		else
 			letter = letter_input
-			letters_guessed << letter
-			is_letter_in_phrase(letter)
+			hangman.is_letter_in_phrase(letter)
 			self.prompt_for_letter
 		end
 	end
