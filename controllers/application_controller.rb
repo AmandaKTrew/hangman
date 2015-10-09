@@ -24,7 +24,7 @@ class HangmanController
          hangman.display.board
          puts "YOU WIN\n"
       else
-         hangman.letters_guessed = ("a".."z").to_a
+         # hangman.letters_guessed = ("a".."z").to_a
          hangman.display.board
          puts "You lose =(\n"
       end

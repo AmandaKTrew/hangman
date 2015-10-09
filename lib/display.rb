@@ -46,16 +46,19 @@ class Display
     end
 
     def phrase_output
-
-        phrase_array.map do |letter|
-            if letter == " "
-                " "
-            elsif self.hangman.letters_guessed.include?(letter)
-                letter
-            else
-                "_"
-            end
-        end.join(" ")
+        if hangman.turns < 7
+            phrase_array.map do |letter|
+                if letter == " "
+                    " "
+                elsif self.hangman.letters_guessed.include?(letter)
+                    letter
+                else
+                    "_"
+                end
+            end.join(" ")
+        else
+            phrase_array.join(" ")
+        end
 
     end
 
@@ -71,31 +74,9 @@ class Display
         puts "                                               "
         puts " #{phrase_output}       "
         puts "                                               "
-        puts "letters guessed: ​#{hangman.letters_guessed.join(" ")}                 "
+        puts "letters guessed: ​#{hangman.letters_guessed.uniq.join(" ")}                 "
 
     end
-
-
-    # def board
-
-    #     puts " ____________________                          "
-    #     puts "|                    |                         "
-    #     puts "|                   (_)                        "
-    #     puts "|                  ,​_|_​,                       "
-    #     puts "|                    |                         "
-    #     puts "|                  ​_/ \_​                       "
-    #     puts "|                                              "
-    #     puts "                                               "
-
-    # end
-
-    # def phrase_display
-
-    # end
-
-    # def letters_display
-    #     
-    # end
 
 end
 
