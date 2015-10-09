@@ -23,7 +23,7 @@ class HangmanCLI
    end
 
    def phrase_check(user_phrase)
-      if user_phrase.length > 20 || (/^[a-zA-Z]*$/).match(user_phrase) == nil
+      if user_phrase.length > 20 || (/^[A-Za-z ]+$/).match(user_phrase) == nil
          puts "Please enter a phrase (up to 20 characters) that only contains letters."
          choose_a_phrase
       else
