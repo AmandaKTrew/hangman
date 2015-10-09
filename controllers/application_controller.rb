@@ -26,7 +26,6 @@ class HangmanController
          puts "YOU WIN"
          puts ""
       else
-         # hangman.letters_guessed = ("a".."z").to_a
          hangman.display.board
          puts ""
          puts "You lose =("
@@ -40,45 +39,5 @@ class HangmanController
       letter = view.render
       hangman.guess_letter(letter)
    end
-
    
 end
-
-
-
-# def phrase_check(user_phrase)
-# 	if user_phrase.length > 20 || (/^[a-zA-Z]*$/).match(user_phrase) == nil
-# 		puts "Please enter a phrase (up to 20 characters) that only contains letters."
-# 		get_input
-# 	else
-# 		phrase = Phrase.new(user_phrase)
-# 	end
-# end
-
- 	
-
-
-
-
-
-
-
-
-
-# 	attr_accessor :phrase
-
-# 	def call 
-# 		puts "Welcome to Hangman"
-# 		puts "This is a two player game."
-# 	end
-
-# 	def instructions
-# 		puts "Player One, please select a phrase (up to 20 characters) for Player Two to guess: "
-# 		phrase.get_phrase
-# 		puts "Player Two: You will be ablle to guess the letters in Player One's phrase."
-# 		puts "You may guess one letter at a time. If your guess is correct your letter will be added, slowly revealing the phrase."
-# 		puts "You may make up to 7 mistakes. If you make all of them you will fail the game."
-# 		prompt_for_letter
-# 	end
-
-	
