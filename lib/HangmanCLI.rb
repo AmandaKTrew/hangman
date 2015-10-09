@@ -8,10 +8,9 @@ class HangmanCLI
    puts "WELCOME TO HANGMAN"
 
    #creates game for ONE or TWO players
-   # puts "Do you have 1 or 2 players? (1 or 2)"
-   # num_players = get_input.to_i
-   # num_players == 1 ? one_player : two_player
-   two_player
+   puts "Do you have 1 or 2 players? (1 or 2)"
+   num_players = get_input.to_i
+   num_players == 1 ? one_player : two_player
 
    # Play game   
    while !hangman.win? && hangman.turns < 7
@@ -22,6 +21,7 @@ class HangmanCLI
       hangman.display.board
       puts "YOU WIN"
    else
+      hangman.letters_guessed = ("a".."z").to_a
       hangman.display.board
       puts "You lose =("
    end
@@ -45,10 +45,10 @@ def get_input
    gets.chomp.downcase
 end
 
-# def one_player
-#    phrase = WordGenerator.new.generate
-#    @hangman = Hangman.new(phrase)
-# end
+def one_player
+   phrase = WordGenerator.new.generate
+   @hangman = Hangman.new(phrase)
+end
 
 def two_player
    puts "Player One, please choose a word or phrase (up to 20 characters):"

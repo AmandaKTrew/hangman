@@ -2,7 +2,7 @@ require 'pry'
 class Hangman
 	attr_accessor :turns, :letters_left, :display
 	attr_reader :phrase, :letters_guessed
-
+	attr_writer :letters_guessed
 	def initialize(phrase)
 		@phrase = phrase
 		@turns = 0

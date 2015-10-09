@@ -71,7 +71,7 @@ class Display
         puts "                                               "
         puts " #{phrase_output}       "
         puts "                                               "
-        # puts "letters guessed: ​_ _ _​ ​_ _ _​ _                 "
+        puts "letters guessed: ​#{hangman.letters_guessed}                 "
 
     end
 
